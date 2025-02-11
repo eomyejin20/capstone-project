@@ -17,6 +17,7 @@ public class ReadingRecordController {
     private final ReadingRecordService readingRecordService;
     private final AladinService aladinService;
 
+    // 생성자 주입
     public ReadingRecordController(ReadingRecordService readingRecordService, AladinService aladinService) {
         this.readingRecordService = readingRecordService;
         this.aladinService = aladinService;
@@ -25,19 +26,22 @@ public class ReadingRecordController {
     // 책 검색 API 추가
     @GetMapping("/search")
     public ResponseEntity<List<BookDto>> searchBooks(@RequestParam String keyword) {
-        List<BookDto> books = aladinService.searchBooks(keyword); // 알라딘 API 호출
-        return ResponseEntity.ok(books); // 결과 반환
+        // 알라딘 API를 통해 책 검색
+        List<BookDto> books = aladinService.searchBooks(keyword);
+        return ResponseEntity.ok(books); // 검색된 책 리스트 반환
     }
 
     // 독서 기록 생성 API
     @PostMapping
     public ResponseEntity<ReadingRecord> createRecord(@RequestBody ReadingRecordDto dto) {
-        // ReadingRecordDto에서 필요한 값을 가져와서 ReadingRecordService에 전달
-        Long userId = dto.getUserId();
-        Long bookId = dto.getBookId();
-        int readPages = dto.getReadPages();
+        // ReadingRecordDto에서 필요한 값 추출
+        Long userId = dto.getUserId();     // 사용자 ID
+        Long bookId = dto.getBookId();     // 책 ID
+        int readPages = dto.getReadPages(); // 읽은 페이지 수
 
-        // ReadingRecordService의 addReadingRecord 메서드 호출
-        return ResponseEntity.ok(readingRecordService.addReadingRecord(userId, bookId, readPages));
+        // ReadingRecordService의 addReadingRecord 메서드 호출하여 독서 기록 생성
+        ReadingRecord readingRecord = readingRecordService.addReadingRecord(userId, bookId, readPages);
+
+        return ResponseEntity.ok(readingRecord); // 생성된 독서 기록 반환
     }
 }

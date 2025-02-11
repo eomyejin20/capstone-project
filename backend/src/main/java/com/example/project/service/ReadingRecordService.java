@@ -56,20 +56,20 @@ public class ReadingRecordService {
         if (totalPages > 0) {
             record.setProgress(((double) record.getReadPages() / totalPages) * 100);
         } else {
-            record.setProgress(0);
+            record.setProgress(0); // 전체 페이지 수가 없는 경우 진행률 0으로 설정
         }
 
         // 5. 독서 목표 업데이트
         if (record.getProgress() >= 100) {
             List<ReadingGoal> goals = readingGoalRepository.findByUserId(userId);
             for (ReadingGoal goal : goals) {
-                goal.setCompletedBooks(goal.getCompletedBooks() + 1);
-                goal.updateProgress();
-                readingGoalRepository.save(goal);
+                goal.setCompletedBooks(goal.getCompletedBooks() + 1); // 목표 달성 책 수 증가
+                goal.updateProgress(); // 목표 진행률 업데이트
+                readingGoalRepository.save(goal); // 목표 업데이트 저장
             }
         }
 
-        // 6. 저장 후 반환
+        // 6. 독서 기록 저장 후 반환
         return readingRecordRepository.save(record);
     }
 }
