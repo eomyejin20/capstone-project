@@ -26,24 +26,21 @@ public class ReadingRecord {
 
     private int readPages;  // 읽은 페이지 수
     private double progress; // 진행률 (%)
-    private LocalDate startDate; // 읽기 시작한 날짜
-    private LocalDate endDate; // 다 읽은 날짜
-
-    @PrePersist
-    public void prePersist() {
-        this.startDate = LocalDate.now();  // 처음 생성될 때 시작 날짜 자동 설정
-    }
+    private LocalDate startDate;
+    private LocalDate endDate;
 
     public void updateProgress() {
-        if (book != null && book.getTotalPages() > 0) {
-            this.progress = Math.min(((double) this.readPages / book.getTotalPages()) * 100, 100); // 100% 초과 방지
-
-            // 진행률이 100%이면 endDate 저장
-            if (this.progress == 100) {
-                this.endDate = LocalDate.now();
-            }
-        } else {
+        if (book == null || book.getTotalPages() <= 0) {
             this.progress = 0;
+            return;
+        }
+
+        // 진행률을 소수점 첫째 자리까지 반올림하여 저장
+        this.progress = Math.round(((double) this.readPages / book.getTotalPages()) * 1000) / 10.0;
+
+        // 진행률이 100%가 되었고, 아직 endDate가 설정되지 않았다면 현재 날짜로 설정
+        if (this.progress >= 100 && this.endDate == null) {
+            this.endDate = LocalDate.now();
         }
     }
 }

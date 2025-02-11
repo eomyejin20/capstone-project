@@ -1,23 +1,28 @@
 package com.example.project.controller;
 
 import com.example.project.dto.ReadingRecordDto;
+import com.example.project.entity.ReadingRecord;
 import com.example.project.service.ReadingRecordService;
-import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/api/reading-records")
-@RequiredArgsConstructor
 public class ReadingRecordController {
-
     private final ReadingRecordService readingRecordService;
 
-    @PostMapping("/add")
-    public ResponseEntity<ReadingRecordDto> addReadingRecord(@RequestParam Long userId,
-                                                             @RequestParam Long bookId,
-                                                             @RequestParam int readPages) {
-        ReadingRecordDto recordDto = readingRecordService.addReadingRecord(userId, bookId, readPages);
-        return ResponseEntity.ok(recordDto);
+    public ReadingRecordController(ReadingRecordService readingRecordService) {
+        this.readingRecordService = readingRecordService;
+    }
+
+    @PostMapping
+    public ResponseEntity<ReadingRecord> createRecord(@RequestBody ReadingRecordDto dto) {
+        // DTO에서 필요한 값만 추출하여 addReadingRecord() 호출
+        ReadingRecord record = readingRecordService.addReadingRecord(
+            dto.getUserId(),
+            dto.getBookId(),
+            dto.getReadPages()
+        );
+        return ResponseEntity.ok(record);
     }
 }
