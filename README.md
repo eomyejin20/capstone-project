@@ -65,38 +65,12 @@ $ git pull -r upstream master
   ```bash
   $ git add .
   $ git status
-  $ git commit -m "[git 세팅하기] : 엄예진 - git 세팅완료 (#1)"
+  $ git commit -m "[git 세팅하기] : 엄예진 - git 세팅완료"
   $ git push origin master
   ```
 
-* #### 커밋 메시지 생성 규칙
-
-  [이슈이름] : 이름 - 개발내용 (#이슈번호)
-
-  ex) `[git 세팅하기] : 엄예진 - git 세팅완료 (#1)`
-
-  > 커밋 메시지에 issue 번호를 포함시키면, 추후에 issue에 해당 커밋들을 모아서 확인할 수 있다.
 
 
-
-<br>
-
-### 3. 해당 이슈에 대한 기능을 다 작성하면 PR 생성
-
-`fork` 해 온 저장소로 이동해서 Pull Request를 생성한다.
-
-* #### 제목
-
-  [이슈이름] - 이름 (#이슈번호)
-
-  ex) `[git 세팅하기] - 엄예진 (#1)`
-
-* #### 내용
-
-  기능에 대해 간단하게 설명
-
-
-<br>
 
 ### 4. 코드리뷰 후 merge
 
