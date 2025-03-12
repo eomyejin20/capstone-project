@@ -1,0 +1,14 @@
+<component name="libraryTable">
+  <library name="Gradle: com.google.api.grpc:proto-google-cloud-speech-v1:4.50.0" type="java-imported" external-system-id="GRADLE">
+    <properties groupId="com.google.api.grpc" artifactId="proto-google-cloud-speech-v1" version="4.50.0" />
+    <CLASSES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.google.api.grpc/proto-google-cloud-speech-v1/4.50.0/ec67acef695a98aff7986cb1870d042d20d2eab0/proto-google-cloud-speech-v1-4.50.0.jar!/" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.google.api.grpc/proto-google-cloud-speech-v1/4.50.0/4166251d1967e1068862edb6391fdb76c8b85b76/proto-google-cloud-speech-v1-4.50.0-javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.google.api.grpc/proto-google-cloud-speech-v1/4.50.0/14c90cdb2fb27cc78e8aebd3ddd3b6cf75ebfe1a/proto-google-cloud-speech-v1-4.50.0-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>
