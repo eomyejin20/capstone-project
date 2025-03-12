@@ -12,9 +12,9 @@
 
 
 
-2. #### `fork` 받은 저장소를 자신의 컴퓨터에 clone 받은 뒤 자신의 이름으로 된 폴더를 생성한다.
+2. #### `fork` 받은 저장소를 자신의 컴퓨터에 clone 받은 뒤 폴더를 생성한다.
 
-   앞으로 올리는 모든 파일들은 `자신의 이름`으로 된 폴더 안에 올려야 한다
+   앞으로 올리는 모든 파일들은 이 폴더 안에 올려야 한다
 
    ![image](https://github.com/user-attachments/assets/d62a12f5-c573-40d6-82a1-7b531a1419e8)
 
@@ -23,7 +23,7 @@
    $ git clone [fork한 자신의 repository 주소] // 자신의 repository에서 확인
    $ cd capstone-project
 
-   $ mkdir -p [자신의 이름]
+   $ mkdir -p [폴더이름]
    ```
 
 
