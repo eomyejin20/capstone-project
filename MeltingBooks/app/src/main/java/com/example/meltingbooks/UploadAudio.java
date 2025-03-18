@@ -83,8 +83,6 @@ public class UploadAudio extends AppCompatActivity {
         });
 
 
-
-
         // 첨부 파일 선택
         imagePickerLauncher = registerForActivityResult(
                 new ActivityResultContracts.StartActivityForResult(),
@@ -109,6 +107,7 @@ public class UploadAudio extends AppCompatActivity {
         btnHashtag.setOnClickListener(v -> {
             // 해시태그 기능 구현
         });
+
 
         btnRecord.setOnClickListener(v -> {
             if (isRecording) {
