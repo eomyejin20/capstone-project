@@ -1379,6 +1379,7 @@ int color background_floating_material_light 0x7f05001e
 int color background_material_dark 0x7f05001f
 int color background_material_light 0x7f050020
 int color black 0x7f050021
+int color blue 0x7f050312
 int color bright_foreground_disabled_material_dark 0x7f050022
 int color bright_foreground_disabled_material_light 0x7f050023
 int color bright_foreground_inverse_material_dark 0x7f050024
@@ -3069,6 +3070,7 @@ int drawable ic_m3_chip_check 0x7f0700ac
 int drawable ic_m3_chip_checked_circle 0x7f0700ad
 int drawable ic_m3_chip_close 0x7f0700ae
 int drawable ic_mic 0x7f0700af
+int drawable ic_mic_on 0x7f070104
 int drawable ic_mtrl_checked_circle 0x7f0700b0
 int drawable ic_mtrl_chip_checked_black 0x7f0700b1
 int drawable ic_mtrl_chip_checked_circle 0x7f0700b2
@@ -3440,7 +3442,9 @@ int id material_timepicker_view 0x7f080118
 int id material_value_index 0x7f080119
 int id matrix 0x7f08011a
 int id message 0x7f08011b
+int id micON 0x7f080209
 int id middle 0x7f08011c
+int id middleLayout 0x7f08020a
 int id mini 0x7f08011d
 int id month_grid 0x7f08011e
 int id month_navigation_bar 0x7f08011f

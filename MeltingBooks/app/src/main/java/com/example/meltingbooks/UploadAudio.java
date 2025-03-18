@@ -10,13 +10,20 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
-import android.view.ViewTreeObserver;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.TextView;  // 추가된 import
 import android.widget.Toast;
+
+import android.speech.SpeechRecognizer;
+import android.speech.RecognizerIntent;
+import android.speech.RecognitionListener;
+
+import java.util.ArrayList;
+import java.util.Locale;
 
 import androidx.activity.result.ActivityResultLauncher;
 import androidx.activity.result.contract.ActivityResultContracts;
@@ -28,6 +35,7 @@ import androidx.core.content.ContextCompat;
 import com.example.myapplication.R;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
+import android.view.Gravity;
 
 import java.io.File;
 import java.io.IOException;
@@ -39,7 +47,7 @@ public class UploadAudio extends AppCompatActivity {
     private static final int REQUEST_PERMISSION_CODE = 1001;
     private ImageButton btnRecord, btnAddFile, btnLike, btnHashtag, btnUpload;
     private EditText etInput;
-    private LinearLayout bottomLayout;
+    private LinearLayout middleLayout, bottomLayout;
     private boolean isKeyboardVisible = false;
     private ImageView imageView;
     private MediaRecorder mediaRecorder;
@@ -48,6 +56,9 @@ public class UploadAudio extends AppCompatActivity {
     private StorageReference storageReference;
 
     private ActivityResultLauncher<Intent> imagePickerLauncher;
+
+    private SpeechRecognizer speechRecognizer;
+    private Intent speechRecognizerIntent;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -62,16 +73,17 @@ public class UploadAudio extends AppCompatActivity {
         btnHashtag = findViewById(R.id.btnHashtag);
         imageView = findViewById(R.id.imageView);
         etInput = findViewById(R.id.etInput);
+        middleLayout = findViewById(R.id.middleLayout);
         bottomLayout = findViewById(R.id.bottomLayout);
         btnRecord = findViewById(R.id.btnRecord);
 
+        // editText 기능
         etInput.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 if (isKeyboardVisible) {
                     // 키보드가 보이면 숨김
                     hideKeyboard();
-
                 } else {
                     // 키보드가 숨겨져 있으면 보임
                     etInput.requestFocus();
@@ -82,8 +94,7 @@ public class UploadAudio extends AppCompatActivity {
             }
         });
 
-
-        // 첨부 파일 선택
+        // 첨부 파일 추가
         imagePickerLauncher = registerForActivityResult(
                 new ActivityResultContracts.StartActivityForResult(),
                 result -> {
@@ -100,6 +111,8 @@ public class UploadAudio extends AppCompatActivity {
             imagePickerLauncher.launch(intent);
         });
 
+        checkPermissions();
+
         btnLike.setOnClickListener(v -> {
             // 좋아요 기능 구현
         });
@@ -108,12 +121,74 @@ public class UploadAudio extends AppCompatActivity {
             // 해시태그 기능 구현
         });
 
-
+        // btnRecord 클릭 리스너에서 micON 이미지 뷰를 표시
         btnRecord.setOnClickListener(v -> {
-            if (isRecording) {
-                stopRecording();
-            } else {
-                startRecording();
+            // micON 뷰를 찾고 visibility를 VISIBLE로 변경
+            ImageView micImageView = findViewById(R.id.micON);
+            if (micImageView != null) {
+                micImageView.setVisibility(View.VISIBLE);  // micON 이미지 뷰를 보이도록 설정
+            }
+            // EditText의 hint 숨기기
+            etInput.setHint("");  // hint를 빈 문자열로 설정
+
+            // 음성 인식 시작
+            speechRecognizer.startListening(speechRecognizerIntent);
+        });
+
+        // 음성 인식 초기화
+        speechRecognizer = SpeechRecognizer.createSpeechRecognizer(this);
+        speechRecognizerIntent = new Intent(RecognizerIntent.ACTION_RECOGNIZE_SPEECH);
+        speechRecognizerIntent.putExtra(RecognizerIntent.EXTRA_LANGUAGE_MODEL, RecognizerIntent.LANGUAGE_MODEL_FREE_FORM);
+        speechRecognizerIntent.putExtra(RecognizerIntent.EXTRA_LANGUAGE, Locale.getDefault());
+
+        speechRecognizer.setRecognitionListener(new RecognitionListener() {
+            @Override
+            public void onReadyForSpeech(Bundle bundle) {
+                // 음성 인식 시작 전
+                showSpeechRecognitionUI();  // UI 표시
+            }
+
+            @Override
+            public void onBeginningOfSpeech() {
+            }
+
+            @Override
+            public void onRmsChanged(float v) {
+            }
+
+            @Override
+            public void onBufferReceived(byte[] bytes) {
+            }
+
+            @Override
+            public void onEndOfSpeech() {
+                // 음성 인식 종료 후 hint 복원
+            }
+
+            @Override
+            public void onError(int error) {
+                Toast.makeText(UploadAudio.this, "음성 인식 오류 발생", Toast.LENGTH_SHORT).show();
+                hideSpeechRecognitionUI();  // UI 숨김
+                // 음성 인식 종료 후 hint 복원
+                etInput.setHint("독서 후 느낌을 공유해 보세요...");  // 기본 hint로 설정
+            }
+
+            @Override
+            public void onResults(Bundle bundle) {
+                ArrayList<String> matches = bundle.getStringArrayList(SpeechRecognizer.RESULTS_RECOGNITION);
+                if (matches != null && !matches.isEmpty()) {
+                    etInput.setText(matches.get(0)); // 인식된 첫 번째 텍스트를 etInput에 설정
+                }
+                hideSpeechRecognitionUI();  // 음성 인식 후 UI 숨김
+
+            }
+
+            @Override
+            public void onPartialResults(Bundle bundle) {
+            }
+
+            @Override
+            public void onEvent(int i, Bundle bundle) {
             }
         });
 
@@ -121,81 +196,8 @@ public class UploadAudio extends AppCompatActivity {
     }
 
     private void checkPermissions() {
-        if (ContextCompat.checkSelfPermission(this, Manifest.permission.RECORD_AUDIO) != PackageManager.PERMISSION_GRANTED ||
-                ContextCompat.checkSelfPermission(this, Manifest.permission.WRITE_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED) {
-            ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.RECORD_AUDIO, Manifest.permission.WRITE_EXTERNAL_STORAGE}, REQUEST_PERMISSION_CODE);
-        }
-    }
-
-    private void startRecording() {
-        if (mediaRecorder == null) {
-            mediaRecorder = new MediaRecorder();
-        }
-
-        File audioFile = new File(getExternalFilesDir(null), generateFileName());
-        audioFilePath = audioFile.getAbsolutePath();
-
-        mediaRecorder.setAudioSource(MediaRecorder.AudioSource.MIC);
-        mediaRecorder.setOutputFormat(MediaRecorder.OutputFormat.THREE_GPP);
-        mediaRecorder.setAudioEncoder(MediaRecorder.AudioEncoder.AMR_NB);
-        mediaRecorder.setOutputFile(audioFilePath);
-
-        try {
-            mediaRecorder.prepare();
-            mediaRecorder.start();
-            isRecording = true;
-            btnRecord.setImageResource(R.drawable.ic_mic);
-            Toast.makeText(this, "녹음 시작", Toast.LENGTH_SHORT).show();
-        } catch (IOException e) {
-            Log.e("AudioRecorder", "녹음 시작 오류", e);
-        }
-    }
-
-    private void stopRecording() {
-        try {
-            mediaRecorder.stop();
-            mediaRecorder.release();
-            mediaRecorder = null;
-            isRecording = false;
-            btnRecord.setImageResource(R.drawable.ic_mic);
-            Toast.makeText(this, "녹음 완료", Toast.LENGTH_SHORT).show();
-
-            uploadAudioToFirebase();
-        } catch (Exception e) {
-            Log.e("AudioRecorder", "녹음 정지 오류", e);
-        }
-    }
-
-    private void uploadAudioToFirebase() {
-        Uri fileUri = Uri.fromFile(new File(audioFilePath));
-        StorageReference audioRef = storageReference.child(fileUri.getLastPathSegment());
-
-        audioRef.putFile(fileUri)
-                .addOnSuccessListener(taskSnapshot -> audioRef.getDownloadUrl().addOnSuccessListener(uri -> {
-                    Toast.makeText(UploadAudio.this, "업로드 완료", Toast.LENGTH_SHORT).show();
-                    convertSpeechToText(uri.toString());
-                }))
-                .addOnFailureListener(e -> Toast.makeText(UploadAudio.this, "업로드 실패", Toast.LENGTH_SHORT).show());
-    }
-
-    private void convertSpeechToText(String audioUrl) {
-        String dummyText = "이 책은 인간과 협력에 대해 다룬다.";
-        etInput.setText(dummyText);
-    }
-
-    private String generateFileName() {
-        return "audio_" + new SimpleDateFormat("yyyyMMdd_HHmmss", Locale.getDefault()).format(new Date()) + ".3gp";
-    }
-
-    private void toggleKeyboard() {
-        InputMethodManager imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
-        if (imm.isAcceptingText()) {
-            // 키보드가 열려 있으면 숨긴다.
-            hideKeyboard();
-        } else {
-            // 키보드가 열려 있지 않으면 키보드를 연다.
-            etInput.requestFocus();
-            imm.showSoftInput(etInput, InputMethodManager.SHOW_IMPLICIT);
+        if (ContextCompat.checkSelfPermission(this, Manifest.permission.RECORD_AUDIO) != PackageManager.PERMISSION_GRANTED) {
+            ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.RECORD_AUDIO}, REQUEST_PERMISSION_CODE);
         }
     }
 
@@ -212,8 +214,25 @@ public class UploadAudio extends AppCompatActivity {
             if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
                 Toast.makeText(this, "권한 허용 완료", Toast.LENGTH_SHORT).show();
             } else {
-                Toast.makeText(this, "권한을 허용해야 녹음이 가능합니다.", Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, "권한을 허용해야 음성 인식이 가능합니다.", Toast.LENGTH_SHORT).show();
             }
+        }
+    }
+
+    private void showSpeechRecognitionUI() {
+        // 음성 인식 중 이미지 보이기
+        ImageView micImageView = findViewById(R.id.micON);
+        if (micImageView != null) {
+            micImageView.setVisibility(View.VISIBLE);  // micON 이미지를 보이도록 설정
+        }
+    }
+
+    // 음성 인식 종료 후 UI 숨김
+    private void hideSpeechRecognitionUI() {
+        // micON을 찾아서 숨김
+        ImageView micImageView = findViewById(R.id.micON);
+        if (micImageView != null) {
+            micImageView.setVisibility(View.GONE);  // micON 이미지 뷰를 숨김
         }
     }
 }

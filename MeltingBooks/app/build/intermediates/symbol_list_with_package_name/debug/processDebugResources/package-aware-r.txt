@@ -1380,6 +1380,7 @@ color background_floating_material_light
 color background_material_dark
 color background_material_light
 color black
+color blue
 color bright_foreground_disabled_material_dark
 color bright_foreground_disabled_material_light
 color bright_foreground_inverse_material_dark
@@ -3070,6 +3071,7 @@ drawable ic_m3_chip_check
 drawable ic_m3_chip_checked_circle
 drawable ic_m3_chip_close
 drawable ic_mic
+drawable ic_mic_on
 drawable ic_mtrl_checked_circle
 drawable ic_mtrl_chip_checked_black
 drawable ic_mtrl_chip_checked_circle
@@ -3441,7 +3443,9 @@ id material_timepicker_view
 id material_value_index
 id matrix
 id message
+id micON
 id middle
+id middleLayout
 id mini
 id month_grid
 id month_navigation_bar

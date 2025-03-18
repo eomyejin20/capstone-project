@@ -50,6 +50,7 @@
 
     <!-- 프로필 및 입력 영역 -->
     <LinearLayout
+        android:id="@+id/middleLayout"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1"
@@ -67,9 +68,9 @@
         <!-- 키보드 입력란 (사용자가 텍스트 입력) -->
         <EditText
             android:id="@+id/etInput"
-            android:layout_width="0dp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
+            android:layout_weight="5"
             android:background="@android:color/transparent"
             android:gravity="top"
             android:hint="독서 후 느낌을 공유해 보세요..."
@@ -77,6 +78,15 @@
             android:maxLines="5"
             android:padding="8dp"
             android:textSize="16sp" />
+
+        <ImageView
+            android:id="@+id/micON"
+            android:layout_width="140dp"
+            android:layout_height="80dp"
+            android:src="@drawable/ic_mic_on"
+            android:layout_marginEnd="15dp"
+            android:layout_gravity="bottom|center_vertical"
+            android:visibility="gone"/>
 
         <!-- 이미지 업로드 -->
         <ImageView
@@ -86,6 +96,8 @@
             android:layout_gravity="bottom"
             android:layout_marginBottom="20dp"
             android:scaleType="centerCrop" />
+
+
     </LinearLayout>
 
     <!-- 버튼 영역 (항상 화면 하단에 고정) -->

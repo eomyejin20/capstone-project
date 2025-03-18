@@ -1,6 +1,7 @@
 R_DEF: Internal format may change without notice
 local
 color black
+color blue
 color white
 drawable circle_background
 drawable ic_attach
@@ -9,6 +10,7 @@ drawable ic_launcher_background
 drawable ic_launcher_foreground
 drawable ic_like
 drawable ic_mic
+drawable ic_mic_on
 drawable ic_profile
 drawable ic_upload
 drawable ic_write
@@ -22,6 +24,8 @@ id btnUpload
 id etInput
 id imageView
 id main
+id micON
+id middleLayout
 layout activity_main
 layout activity_write
 mipmap ic_launcher
