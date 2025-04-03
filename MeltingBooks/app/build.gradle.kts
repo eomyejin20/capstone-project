@@ -58,12 +58,14 @@ dependencies {
     testImplementation(libs.junit)
     androidTestImplementation(libs.ext.junit)
     androidTestImplementation(libs.espresso.core)
+    implementation ("androidx.emoji2:emoji2:1.1.0") // emoji2 라이브러리 추가
 
     implementation(platform("com.google.firebase:firebase-bom:33.8.0"))
     implementation("com.google.firebase:firebase-analytics")
     implementation("com.google.firebase:firebase-storage:20.2.1")
     implementation("com.google.android.gms:play-services-auth:20.7.0")
-
+    //CHATGPT API
+    implementation("com.squareup.okhttp3:okhttp:4.12.0")
     // Google Cloud Speech API
     implementation("com.google.cloud:google-cloud-speech:4.50.0") {
         exclude(group = "com.google.protobuf", module = "protobuf-java")

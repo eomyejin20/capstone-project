@@ -48,13 +48,37 @@
         </LinearLayout>
     </LinearLayout>
 
-    <!-- 프로필 및 입력 영역 -->
+    <!-- 중간 영역: 프로필 및 입력 -->
     <LinearLayout
         android:id="@+id/middleLayout"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1"
-        android:orientation="horizontal">
+        android:orientation="vertical">
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="4"
+            android:fillViewport="true"
+            android:overScrollMode="never">
+
+            <!-- 스크롤 가능한 컨테이너 -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:weightSum="10">
+
+
+        <!-- 텍스트 입력란을 포함하는 레이아웃
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="4"
+            android:orientation="horizontal"
+            android:weightSum="10">-->
+
 
         <!-- 프로필 이미지 -->
         <ImageView
@@ -68,16 +92,28 @@
         <!-- 키보드 입력란 (사용자가 텍스트 입력) -->
         <EditText
             android:id="@+id/etInput"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_weight="5"
+            android:layout_weight="8"
             android:background="@android:color/transparent"
             android:gravity="top"
-            android:hint="독서 후 느낌을 공유해 보세요..."
+            android:hint="독서 후 느낌을 공유해 보세요!"
             android:inputType="textMultiLine"
-            android:maxLines="5"
+            android:maxLines="15"
             android:padding="8dp"
             android:textSize="16sp" />
+        </LinearLayout>
+    </ScrollView>
+
+
+        <!-- 버튼 및 이미지 영역 (EditText 아래로 이동) -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="horizontal"
+            android:gravity="end|bottom"
+            android:layout_marginTop="10dp">
 
         <ImageView
             android:id="@+id/micON"
@@ -87,6 +123,34 @@
             android:layout_marginEnd="15dp"
             android:layout_gravity="bottom|center_vertical"
             android:visibility="gone"/>
+
+        <ImageView
+            android:id="@+id/summarizing"
+            android:layout_width="140dp"
+            android:layout_height="80dp"
+            android:src="@drawable/ic_summarizing"
+            android:layout_marginEnd="15dp"
+            android:layout_gravity="bottom|center_vertical"
+            android:visibility="gone"/>
+
+
+        <android.widget.Button
+            android:id="@+id/btnSummarize"
+            android:layout_width="150dp"
+            android:layout_height="25dp"
+            android:layout_marginEnd="5dp"
+            android:layout_gravity="bottom|center_vertical"
+            android:text="요약하기"
+            android:textColor="#000000"
+            android:background="@drawable/rounded_button"
+            android:textSize="15sp"
+            android:paddingLeft="2dp"
+            android:paddingRight="2dp"
+            android:paddingTop="1dp"
+            android:paddingBottom="1dp"
+            android:layout_marginBottom="20dp"
+            android:visibility="gone"/>
+
 
         <!-- 이미지 업로드 -->
         <ImageView
@@ -99,6 +163,7 @@
 
 
     </LinearLayout>
+</LinearLayout>
 
     <!-- 버튼 영역 (항상 화면 하단에 고정) -->
     <LinearLayout
@@ -176,13 +241,14 @@
 
             <!-- 마이크 버튼 (맨 오른쪽) -->
             <View
-                android:layout_width="166dp"
-                android:layout_height="match_parent"/>
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"/>
 
             <ImageButton
                 android:id="@+id/btnRecord"
-                android:layout_width="40dp"
-                android:layout_height="40dp"
+                android:layout_width="45dp"
+                android:layout_height="45dp"
                 android:background="?attr/selectableItemBackgroundBorderless"
                 android:src="@drawable/ic_mic"
                 android:scaleType="centerInside"

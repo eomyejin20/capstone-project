@@ -3078,6 +3078,7 @@ drawable ic_mtrl_chip_checked_circle
 drawable ic_mtrl_chip_close_circle
 drawable ic_profile
 drawable ic_search_black_24
+drawable ic_summarizing
 drawable ic_upload
 drawable ic_write
 drawable indeterminate_static
@@ -3153,6 +3154,7 @@ drawable notification_template_icon_bg
 drawable notification_template_icon_low_bg
 drawable notification_tile_bg
 drawable notify_panel_notification_icon_bg
+drawable rounded_button
 drawable test_level_drawable
 drawable tooltip_frame_dark
 drawable tooltip_frame_light
@@ -3265,6 +3267,7 @@ id btnGoToUpload
 id btnHashtag
 id btnLike
 id btnRecord
+id btnSummarize
 id btnUpload
 id buttonPanel
 id cache_measures
@@ -3604,6 +3607,7 @@ id stop
 id stretch
 id submenuarrow
 id submit_area
+id summarizing
 id supportScrollUp
 id tabMode
 id tag_accessibility_actions
@@ -4059,6 +4063,7 @@ string mtrl_switch_track_decoration_path
 string mtrl_switch_track_path
 string mtrl_timepicker_cancel
 string mtrl_timepicker_confirm
+string openai_api_key
 string password_toggle_content_description
 string path_password_eye
 string path_password_eye_mask_strike_through

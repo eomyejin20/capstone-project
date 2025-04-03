@@ -9,12 +9,12 @@
 9        android:targetSdkVersion="35" />
 10
 11    <!-- 권한 -->
-12    <uses-permission android:name="android.permission.RECORD_AUDIO" />
-12-->C:\Users\djaxl\AndroidStudioProjects\MeltingBooks\app\src\main\AndroidManifest.xml:6:5-70
-12-->C:\Users\djaxl\AndroidStudioProjects\MeltingBooks\app\src\main\AndroidManifest.xml:6:22-68
-13    <uses-permission android:name="android.permission.INTERNET" />
-13-->C:\Users\djaxl\AndroidStudioProjects\MeltingBooks\app\src\main\AndroidManifest.xml:7:5-66
-13-->C:\Users\djaxl\AndroidStudioProjects\MeltingBooks\app\src\main\AndroidManifest.xml:7:22-64
+12    <uses-permission android:name="android.permission.INTERNET" />
+12-->C:\Users\djaxl\AndroidStudioProjects\MeltingBooks\app\src\main\AndroidManifest.xml:6:5-66
+12-->C:\Users\djaxl\AndroidStudioProjects\MeltingBooks\app\src\main\AndroidManifest.xml:6:22-64
+13    <uses-permission android:name="android.permission.RECORD_AUDIO" />
+13-->C:\Users\djaxl\AndroidStudioProjects\MeltingBooks\app\src\main\AndroidManifest.xml:7:5-70
+13-->C:\Users\djaxl\AndroidStudioProjects\MeltingBooks\app\src\main\AndroidManifest.xml:7:22-68
 14    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 14-->[com.google.android.gms:play-services-measurement:22.2.0] C:\Users\djaxl\.gradle\caches\8.10.2\transforms\908221624365facde3ea62dfee7596e3\transformed\play-services-measurement-22.2.0\AndroidManifest.xml:24:5-79
 14-->[com.google.android.gms:play-services-measurement:22.2.0] C:\Users\djaxl\.gradle\caches\8.10.2\transforms\908221624365facde3ea62dfee7596e3\transformed\play-services-measurement-22.2.0\AndroidManifest.xml:24:22-76
