@@ -8,10 +8,9 @@
     <string name="firebase_database_url" translatable="false">https://bookgpt-e18a5-default-rtdb.asia-southeast1.firebasedatabase.app</string>
     <string name="gcm_defaultSenderId" translatable="false">530155572269</string>
     <string name="google_api_key" translatable="false">AIzaSyDxAynZdWJ95U91uiSuuHQLE-EOdEtB-Xw</string>
-    <string name="google_app_id" translatable="false">1:530155572269:android:12b8db38c10f735015fca4</string>
+    <string name="google_app_id" translatable="false">1:530155572269:android:37976b88f89bdab115fca4</string>
     <string name="google_crash_reporting_api_key" translatable="false">AIzaSyDxAynZdWJ95U91uiSuuHQLE-EOdEtB-Xw</string>
     <string name="google_storage_bucket" translatable="false">bookgpt-e18a5.firebasestorage.app</string>
-    <string name="openai_api_key">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</string>
     <string name="project_id" translatable="false">bookgpt-e18a5</string>
     <style name="Base.Theme.MeltingBooks" parent="Theme.Material3.DayNight.NoActionBar">
         

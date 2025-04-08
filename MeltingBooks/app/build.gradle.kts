@@ -1,3 +1,16 @@
+import java.util.Properties
+
+// ✅ local.properties에서 API 키를 가져오는 함수
+fun getApiKeyFromLocalProperties(): String {
+
+    val properties = Properties()
+    val localPropertiesFile = rootProject.file("local.properties")
+    if (localPropertiesFile.exists()) {
+        properties.load(localPropertiesFile.inputStream())
+    }
+    return properties.getProperty("OPENAI_API_KEY") ?: ""
+}
+
 plugins {
     id("com.android.application")
     id("com.google.gms.google-services")
@@ -5,17 +18,25 @@ plugins {
 }
 
 android {
-    namespace = "com.example.myapplication"
+
+    buildFeatures {
+        buildConfig = true
+    }
+
+    namespace = "com.example.meltingbooks"
     compileSdk = 35
 
     defaultConfig {
-        applicationId = "com.example.myapplication"
+        applicationId = "com.example.meltingbooks"
         minSdk = 26
         targetSdk = 35
         versionCode = 1
         versionName = "1.0"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+
+        // ✅ local.properties에서 OpenAI API 키를 읽어 BuildConfig에 추가
+        buildConfigField("String", "OPENAI_API_KEY", "\"${getApiKeyFromLocalProperties()}\"")
     }
 
     buildTypes {
@@ -58,20 +79,21 @@ dependencies {
     testImplementation(libs.junit)
     androidTestImplementation(libs.ext.junit)
     androidTestImplementation(libs.espresso.core)
-    implementation ("androidx.emoji2:emoji2:1.1.0") // emoji2 라이브러리 추가
+    implementation("androidx.emoji2:emoji2:1.1.0")
 
     implementation(platform("com.google.firebase:firebase-bom:33.8.0"))
     implementation("com.google.firebase:firebase-analytics")
     implementation("com.google.firebase:firebase-storage:20.2.1")
     implementation("com.google.android.gms:play-services-auth:20.7.0")
-    //CHATGPT API
+
     implementation("com.squareup.okhttp3:okhttp:4.12.0")
-    // Google Cloud Speech API
     implementation("com.google.cloud:google-cloud-speech:4.50.0") {
         exclude(group = "com.google.protobuf", module = "protobuf-java")
     }
-    implementation("com.google.protobuf:protobuf-javalite:3.25.5") // 최신 버전 유지
+    implementation("com.google.protobuf:protobuf-javalite:3.25.5")
 }
+
+
 
 // Firebase 설정 적용
 apply(plugin = "com.google.gms.google-services")

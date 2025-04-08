@@ -1,27 +1,8 @@
 {
     "logs": [
         {
-            "outputFile": "com.example.myapplication.app-mergeDebugResources-36:/values-night-v8/values-night-v8.xml",
+            "outputFile": "com.example.meltingbooks.app-mergeDebugResources-36:/values-night-v8/values-night-v8.xml",
             "map": [
-                {
-                    "source": "C:\\Users\\djaxl\\AndroidStudioProjects\\MeltingBooks\\app\\src\\main\\res\\values-night\\themes.xml",
-                    "from": {
-                        "startLines": "2",
-                        "startColumns": "4",
-                        "startOffsets": "100",
-                        "endLines": "5",
-                        "endColumns": "12",
-                        "endOffsets": "319"
-                    },
-                    "to": {
-                        "startLines": "2",
-                        "startColumns": "4",
-                        "startOffsets": "55",
-                        "endLines": "5",
-                        "endColumns": "12",
-                        "endOffsets": "170"
-                    }
-                },
                 {
                     "source": "C:\\Users\\djaxl\\.gradle\\caches\\8.10.2\\transforms\\7d7ec93460b0a43ac650958604f90e9f\\transformed\\appcompat-1.7.0\\res\\values-night-v8\\values-night-v8.xml",
                     "from": {
@@ -37,6 +18,25 @@
                         "startOffsets": "175,245,329,413,509,611,713,3695",
                         "endColumns": "69,83,83,95,101,101,93,88",
                         "endOffsets": "240,324,408,504,606,708,802,3779"
+                    }
+                },
+                {
+                    "source": "C:\\Users\\djaxl\\capstone-project\\MeltingBooks\\app\\src\\main\\res\\values-night\\themes.xml",
+                    "from": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "100",
+                        "endLines": "5",
+                        "endColumns": "12",
+                        "endOffsets": "319"
+                    },
+                    "to": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "55",
+                        "endLines": "5",
+                        "endColumns": "12",
+                        "endOffsets": "170"
                     }
                 },
                 {

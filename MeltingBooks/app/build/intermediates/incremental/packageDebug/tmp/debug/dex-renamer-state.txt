@@ -1,13 +1,13 @@
-#Fri Apr 04 00:58:34 KST 2025
-base.0=C\:\\Users\\djaxl\\AndroidStudioProjects\\MeltingBooks\\app\\build\\intermediates\\dex\\debug\\mergeExtDexDebug\\classes.dex
-base.1=C\:\\Users\\djaxl\\AndroidStudioProjects\\MeltingBooks\\app\\build\\intermediates\\dex\\debug\\mergeProjectDexDebug\\0\\classes.dex
-base.2=C\:\\Users\\djaxl\\AndroidStudioProjects\\MeltingBooks\\app\\build\\intermediates\\dex\\debug\\mergeProjectDexDebug\\15\\classes.dex
-base.3=C\:\\Users\\djaxl\\AndroidStudioProjects\\MeltingBooks\\app\\build\\intermediates\\dex\\debug\\mergeExtDexDebug\\classes2.dex
-base.4=C\:\\Users\\djaxl\\AndroidStudioProjects\\MeltingBooks\\app\\build\\intermediates\\dex\\debug\\mergeExtDexDebug\\classes3.dex
-base.5=C\:\\Users\\djaxl\\AndroidStudioProjects\\MeltingBooks\\app\\build\\intermediates\\dex\\debug\\mergeExtDexDebug\\classes4.dex
-base.6=C\:\\Users\\djaxl\\AndroidStudioProjects\\MeltingBooks\\app\\build\\intermediates\\dex\\debug\\mergeExtDexDebug\\classes5.dex
-base.7=C\:\\Users\\djaxl\\AndroidStudioProjects\\MeltingBooks\\app\\build\\intermediates\\dex\\debug\\mergeExtDexDebug\\classes6.dex
-base.8=C\:\\Users\\djaxl\\AndroidStudioProjects\\MeltingBooks\\app\\build\\intermediates\\dex\\debug\\mergeExtDexDebug\\classes7.dex
+#Tue Apr 08 15:41:29 KST 2025
+base.0=C\:\\Users\\djaxl\\capstone-project\\MeltingBooks\\app\\build\\intermediates\\dex\\debug\\mergeExtDexDebug\\classes.dex
+base.1=C\:\\Users\\djaxl\\capstone-project\\MeltingBooks\\app\\build\\intermediates\\dex\\debug\\mergeProjectDexDebug\\0\\classes.dex
+base.2=C\:\\Users\\djaxl\\capstone-project\\MeltingBooks\\app\\build\\intermediates\\dex\\debug\\mergeProjectDexDebug\\15\\classes.dex
+base.3=C\:\\Users\\djaxl\\capstone-project\\MeltingBooks\\app\\build\\intermediates\\dex\\debug\\mergeExtDexDebug\\classes2.dex
+base.4=C\:\\Users\\djaxl\\capstone-project\\MeltingBooks\\app\\build\\intermediates\\dex\\debug\\mergeExtDexDebug\\classes3.dex
+base.5=C\:\\Users\\djaxl\\capstone-project\\MeltingBooks\\app\\build\\intermediates\\dex\\debug\\mergeExtDexDebug\\classes4.dex
+base.6=C\:\\Users\\djaxl\\capstone-project\\MeltingBooks\\app\\build\\intermediates\\dex\\debug\\mergeExtDexDebug\\classes5.dex
+base.7=C\:\\Users\\djaxl\\capstone-project\\MeltingBooks\\app\\build\\intermediates\\dex\\debug\\mergeExtDexDebug\\classes6.dex
+base.8=C\:\\Users\\djaxl\\capstone-project\\MeltingBooks\\app\\build\\intermediates\\dex\\debug\\mergeExtDexDebug\\classes7.dex
 path.0=classes.dex
 path.1=0/classes.dex
 path.2=15/classes.dex

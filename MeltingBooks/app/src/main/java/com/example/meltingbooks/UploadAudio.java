@@ -34,7 +34,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 
-import com.example.myapplication.R;
+import com.example.meltingbooks.R;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 
@@ -50,6 +50,8 @@ import okhttp3.Response;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
+
+import com.example.meltingbooks.BuildConfig;
 
 public class UploadAudio extends AppCompatActivity {
     private String apiKey;  // apiKey는 이제 onCreate()에서 초기화
@@ -81,8 +83,7 @@ public class UploadAudio extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_write);
 
-        // apiKey는 onCreate에서 초기화
-        apiKey = getString(R.string.openai_api_key);
+        String apiKey = BuildConfig.OPENAI_API_KEY;
 
         ///안드로이드 6.0버전 이상인지 체크해서 퍼미션
         if(Build.VERSION.SDK_INT >= 23){

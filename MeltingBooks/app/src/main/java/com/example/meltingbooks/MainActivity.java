@@ -6,7 +6,7 @@ import android.view.View;
 import android.widget.ImageButton;
 
 import androidx.appcompat.app.AppCompatActivity;
-import com.example.myapplication.R;
+import com.example.meltingbooks.R;
 
 public class MainActivity extends AppCompatActivity {
 

@@ -1,7 +1,7 @@
 {
     "logs": [
         {
-            "outputFile": "com.example.myapplication.app-mergeDebugResources-36:/values-zh-rHK/values-zh-rHK.xml",
+            "outputFile": "com.example.meltingbooks.app-mergeDebugResources-36:/values-zh-rHK/values-zh-rHK.xml",
             "map": [
                 {
                     "source": "C:\\Users\\djaxl\\.gradle\\caches\\8.10.2\\transforms\\232d98fb6c8ce64a2e18666ff8e651d2\\transformed\\core-1.13.0\\res\\values-zh-rHK\\values-zh-rHK.xml",

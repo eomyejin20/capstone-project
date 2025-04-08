@@ -1,7 +1,7 @@
 {
     "logs": [
         {
-            "outputFile": "com.example.myapplication.app-mergeDebugResources-36:/values-ur/values-ur.xml",
+            "outputFile": "com.example.meltingbooks.app-mergeDebugResources-36:/values-ur/values-ur.xml",
             "map": [
                 {
                     "source": "C:\\Users\\djaxl\\.gradle\\caches\\8.10.2\\transforms\\c86249a8c9d2e3e9835ac9ce647dcde5\\transformed\\play-services-basement-18.5.0\\res\\values-ur\\values.xml",

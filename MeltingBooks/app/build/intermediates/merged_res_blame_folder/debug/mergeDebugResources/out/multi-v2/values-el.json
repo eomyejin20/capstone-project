@@ -1,7 +1,7 @@
 {
     "logs": [
         {
-            "outputFile": "com.example.myapplication.app-mergeDebugResources-36:/values-el/values-el.xml",
+            "outputFile": "com.example.meltingbooks.app-mergeDebugResources-36:/values-el/values-el.xml",
             "map": [
                 {
                     "source": "C:\\Users\\djaxl\\.gradle\\caches\\8.10.2\\transforms\\5c504b8d6bbbc7bfeca959a89fe70adf\\transformed\\material-1.12.0\\res\\values-el\\values-el.xml",

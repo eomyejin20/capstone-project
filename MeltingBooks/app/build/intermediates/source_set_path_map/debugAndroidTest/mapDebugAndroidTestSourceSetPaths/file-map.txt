@@ -1,5 +1,5 @@
-com.example.myapplication.test.app-core-1.6.1-0 C:\Users\djaxl\.gradle\caches\8.10.2\transforms\6b570e19c5af51ead92418afb3bbdec4\transformed\core-1.6.1\res
-com.example.myapplication.test.app-androidTest-1 C:\Users\djaxl\AndroidStudioProjects\MeltingBooks\app\build\generated\res\resValues\androidTest\debug
-com.example.myapplication.test.app-mergeDebugAndroidTestResources-2 C:\Users\djaxl\AndroidStudioProjects\MeltingBooks\app\build\intermediates\incremental\debugAndroidTest\mergeDebugAndroidTestResources\merged.dir
-com.example.myapplication.test.app-mergeDebugAndroidTestResources-3 C:\Users\djaxl\AndroidStudioProjects\MeltingBooks\app\build\intermediates\incremental\debugAndroidTest\mergeDebugAndroidTestResources\stripped.dir
-com.example.myapplication.test.app-debugAndroidTest-4 C:\Users\djaxl\AndroidStudioProjects\MeltingBooks\app\build\intermediates\merged_res\debugAndroidTest\mergeDebugAndroidTestResources
+com.example.meltingbooks.test.app-core-1.6.1-0 C:\Users\djaxl\.gradle\caches\8.10.2\transforms\6b570e19c5af51ead92418afb3bbdec4\transformed\core-1.6.1\res
+com.example.meltingbooks.test.app-androidTest-1 C:\Users\djaxl\capstone-project\MeltingBooks\app\build\generated\res\resValues\androidTest\debug
+com.example.meltingbooks.test.app-mergeDebugAndroidTestResources-2 C:\Users\djaxl\capstone-project\MeltingBooks\app\build\intermediates\incremental\debugAndroidTest\mergeDebugAndroidTestResources\merged.dir
+com.example.meltingbooks.test.app-mergeDebugAndroidTestResources-3 C:\Users\djaxl\capstone-project\MeltingBooks\app\build\intermediates\incremental\debugAndroidTest\mergeDebugAndroidTestResources\stripped.dir
+com.example.meltingbooks.test.app-debugAndroidTest-4 C:\Users\djaxl\capstone-project\MeltingBooks\app\build\intermediates\merged_res\debugAndroidTest\mergeDebugAndroidTestResources

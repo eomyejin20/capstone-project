@@ -1,4 +1,4 @@
-com.example.myapplication
+com.example.meltingbooks
 anim abc_fade_in
 anim abc_fade_out
 anim abc_grow_fade_in_from_bottom
@@ -4063,7 +4063,6 @@ string mtrl_switch_track_decoration_path
 string mtrl_switch_track_path
 string mtrl_timepicker_cancel
 string mtrl_timepicker_confirm
-string openai_api_key
 string password_toggle_content_description
 string path_password_eye
 string path_password_eye_mask_strike_through
