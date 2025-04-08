@@ -71,15 +71,6 @@
                 android:weightSum="10">
 
 
-        <!-- 텍스트 입력란을 포함하는 레이아웃
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="4"
-            android:orientation="horizontal"
-            android:weightSum="10">-->
-
-
         <!-- 프로필 이미지 -->
         <ImageView
             android:layout_width="45dp"

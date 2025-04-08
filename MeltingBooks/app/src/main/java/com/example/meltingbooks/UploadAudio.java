@@ -186,17 +186,18 @@ public class UploadAudio extends AppCompatActivity {
 
         /// RecognizerIntent 생성
         intent = new Intent(RecognizerIntent.ACTION_RECOGNIZE_SPEECH);
-        intent.putExtra(RecognizerIntent.EXTRA_LANGUAGE_MODEL, RecognizerIntent.LANGUAGE_MODEL_FREE_FORM);
+        //intent.putExtra(RecognizerIntent.EXTRA_LANGUAGE_MODEL, RecognizerIntent.LANGUAGE_MODEL_FREE_FORM);
         intent.putExtra(RecognizerIntent.EXTRA_CALLING_PACKAGE,getPackageName()); // 여분의 키
         intent.putExtra(RecognizerIntent.EXTRA_LANGUAGE, Locale.getDefault());
-        //intent.putExtra(RecognizerIntent.EXTRA_LANGUAGE,"ko-KR"); // 언어 설정
-        intent.putExtra(RecognizerIntent.EXTRA_LANGUAGE, Locale.getDefault().toString()); // 기기의 기본 언어로 설정
+        intent.putExtra(RecognizerIntent.EXTRA_LANGUAGE,"ko-KR"); // 언어 설정
+        //intent.putExtra(RecognizerIntent.EXTRA_LANGUAGE, Locale.getDefault().toString()); // 기기의 기본 언어로 설정
 
 
         // btnRecord 클릭 리스너에서 micON 이미지 뷰를 표시
         btnRecord.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                btnSummarize.setVisibility(View.GONE);
                 initSpeechRecognizer();
                 speechRecognizer = SpeechRecognizer.createSpeechRecognizer(UploadAudio.this); // 새 SpeechRecognizer 를 만드는 팩토리 메서드
                 speechRecognizer.setRecognitionListener(listener); // 리스너 설정
@@ -218,7 +219,6 @@ public class UploadAudio extends AppCompatActivity {
         public void onReadyForSpeech(Bundle params) {
             showSpeechRecognitionUI();
             // 말하기 시작할 준비가되면 호출
-            Toast.makeText(getApplicationContext(),"음성인식 시작",Toast.LENGTH_SHORT).show();
         }
 
         @Override
@@ -291,6 +291,7 @@ public class UploadAudio extends AppCompatActivity {
                     results.getStringArrayList(SpeechRecognizer.RESULTS_RECOGNITION);
             if (matches != null && !matches.isEmpty()) {
                 etInput.setText(matches.get(0)); // 인식된 첫 번째 텍스트를 etInput에 설정
+                etInput.setSelection(etInput.getText().length()); // 🔥 커서를 맨 뒤로 이동
                 // 음성 인식이 완료되면 요약하기 버튼을 보이게 설정
                 btnSummarize.setVisibility(View.VISIBLE);
             }
